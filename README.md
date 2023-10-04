@@ -2,25 +2,25 @@
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include: 
 
-* Explain the purpose of the analysis.
-&ensp;The purpose of the analysis is to evaluate how accuarte the model is at predicting whether a borrower status is healthy or high-risk loan. 
-* Explain what financial information the data was on, and what you needed to predict.
-&ensp; The financial is based off of historical lending activity from a peer-to-peer lending services company. Features include loan size, interest rate, debt to income, borrower's income, number of accounts, total debt. What we are trying to predict is the loan status: Healthy or High Risk.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-&ensp;Trying to predict 1's and 0's. 0 being healthy, 1 being high risk. Value counts lets us know the number of each class in the dataset before the the data set is split into testing and training. 
-* Describe the stages of the machine learning process you went through as part of this analysis.
-**1. Process:**
-&ensp;Clean the data by sepearting the Features(X) from the Target (y). This was done byh dropping ['loan_status'] column and assigning it to why before doing so. Then split the data into training and testing dataset.
-**2. Train:**
-&ensp;Fit/train the model using the training X, y data
-**3. Validate:**
-&ensp;Validate by using the subset of data that is meant for testing 
-**4. Predict:**
-&ensp;Using the predict function, we use the y test data to show the prediction results 
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
-&ensp;I used the logistic regression method as the classification model to predict high-risk and healthy loan. The prediction values are descrete and binary (1, 0). We also used Random Over Sampler Model for resampling as we could see that there was an imbalance between the 2 loans. There were 75036 healthy loan vs 2500 high-risk loan. Using RandomOverSample, it ended up adding more rows of high-risk loans to only the training data so that both loans have the exact same amount of rows. 
+* Explain the purpose of the analysis.<br/>
+*The purpose of the analysis is to evaluate how accuarte the model is at predicting whether a borrower status is healthy or high-risk loan.*
+* Explain what financial information the data was on, and what you needed to predict.<br/>
+*The financial is based off of historical lending activity from a peer-to-peer lending services company. Features include loan size, interest rate, debt to income, borrower's income, number of accounts, total debt. What we are trying to predict is the loan status: Healthy or High Risk.*
+* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).<br/>
+*Trying to predict 1's and 0's. 0 being healthy, 1 being high risk. Value counts lets us know the number of each class in the dataset before the the data set is split into testing and training.*
+* Describe the stages of the machine learning process you went through as part of this analysis.<br/>
+**1. Process:**<br/>
+*Clean the data by sepearting the Features(X) from the Target (y). This was done byh dropping ['loan_status'] column and assigning it to why before doing so. Then split the data into training and testing dataset.*<br/>
+**2. Train:**<br/>
+*Fit/train the model using the training X, y data*<br/>
+**3. Validate:**<br/>
+  Validate by using the subset of data that is meant for testing* <br/>
+**4. Predict:**<br/>
+*Using the predict function, we use the y test data to show the prediction results*
+* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).<br/>
+*I used the logistic regression method as the classification model to predict high-risk and healthy loan. The prediction values are descrete and binary (1, 0). We also used Random Over Sampler Model for resampling as we could see that there was an imbalance between the 2 loans. There were 75036 healthy loan vs 2500 high-risk loan. Using RandomOverSample, it ended up adding more rows of high-risk loans to only the training data so that both loans have the exact same amount of rows.*
 
 ## Results
 
@@ -38,14 +38,14 @@ Based on the f1-score, nothing has really changed for predicting healthy loan si
 ## Summary
 
 Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-&ensp;When we resampled the training data, it performed than the orginial training data. Even though the precision for the high-risk data decrease by 1%, overall it is still perform the best. The recall had improved and so did the f-1 score. 
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? ) 
-&ensp; The performance depends on the given data and how we process it. However, depending on what the bank values more between 1 and 0 then yes we would want to either increase the precentage for recalls or precision. Do we care more about minimizing the mistake the model makes at guessing high-risk correctly or value more that the model guess the number of high-risk correctly out of the borrowers that are actually high-risk. 
+* Which one seems to perform best? How do you know it performs best?<br/>
+*When we resampled the training data, it performed than the orginial training data. Even though the precision for the high-risk data decrease by 1%, overall it is still perform the best. The recall had improved and so did the f-1 score.*<br/> 
+* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? ) <br/>
+*The performance depends on the given data and how we process it. However, depending on what the bank values more between 1 and 0 then yes we would want to either increase the precentage for recalls or precision. Do we care more about minimizing the mistake the model makes at guessing high-risk correctly or value more that the model guess the number of high-risk correctly out of the borrowers that are actually high-risk.*
 
-* If you do not recommend any of the models, please justify your reasoning.
-&ensp; I would recommend this model because it has demonstrated high accuracy especially for healthy loans. high-risk loan prediction performed fairly well. Since we're not trying to prediction more than 2 classes, it also fits what you're trying to do. It's easy to understand and the model accomplishes our goal in predicting the probabilty of 1's and 0's. However, down the line if the model doesn't seem to be working and getting too big to handle, then we may have to shift to random forest. 
+* If you do not recommend any of the models, please justify your reasoning.<br/>
+*I would recommend this model because it has demonstrated high accuracy especially for healthy loans. high-risk loan prediction performed fairly well. Since we're not trying to prediction more than 2 classes, it also fits what you're trying to do. It's easy to understand and the model accomplishes our goal in predicting the probabilty of 1's and 0's. However, down the line if the model doesn't seem to be working and getting too big to handle, then we may have to shift to random forest.*
 
 ## Resources
-1. How to Interprest classification Report: https://www.statology.org/sklearn-classification-report/
-<br>2. Random Resampling Method for Imbalanced Data with Imblear: https://hersanyagci.medium.com/random-resampling-methods-for-imbalanced-data-with-imblearn-1fbba4a0e6d3
+1. How to Interprest classification Report: https://www.statology.org/sklearn-classification-report/ <br/>
+2. Random Resampling Method for Imbalanced Data with Imblear: https://hersanyagci.medium.com/random-resampling-methods-for-imbalanced-data-with-imblearn-1fbba4a0e6d3
